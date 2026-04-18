@@ -9,12 +9,12 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --navy: #060f1e;
+    --navy: #0a1628;
     --blue: #0f2847;
     --mid: #1a4d8f;
-    --accent: #2563a8;
-    --gold: #c8a84b;
-    --gold-light: #e8c96a;
+    --accent: #2b6cb8;
+    --cyan: #3db5e0;
+    --cyan-light: #6dcdf0;
     --light-blue: #dbeafe;
     --white: #ffffff;
     --gray-50: #f8fafc;
@@ -42,7 +42,7 @@
     position: fixed;
     top: 0; left: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--accent));
+    background: linear-gradient(90deg, var(--cyan), var(--accent));
     z-index: 200;
     width: 0%;
     transition: width 0.1s linear;
@@ -74,26 +74,26 @@
   .nav-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
     text-decoration: none;
   }
 
-  .nav-logo-text {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: 0.12em;
+  .nav-logo-img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+    /* logo tem fundo branco, usar filter para adaptar ao fundo escuro da nav */
+    filter: brightness(0) invert(1);
+    transition: opacity 0.2s;
   }
 
-  .nav-logo-sub {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    color: var(--gold);
-    letter-spacing: 0.2em;
-    display: block;
-    margin-top: -2px;
-    text-transform: uppercase;
+  .nav-logo-img:hover { opacity: 0.85; }
+
+  .footer-logo-img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
   }
 
   .nav-links {
@@ -121,7 +121,7 @@
     bottom: -4px;
     left: 0; right: 0;
     height: 1px;
-    background: var(--gold);
+    background: var(--cyan);
     transform: scaleX(0);
     transition: transform 0.25s;
   }
@@ -130,8 +130,8 @@
   .nav-links a:hover::after { transform: scaleX(1); }
 
   .nav-cta {
-    background: var(--gold) !important;
-    color: var(--navy) !important;
+    background: var(--mid) !important;
+    color: var(--white) !important;
     padding: 9px 22px !important;
     border-radius: 2px !important;
     font-weight: 600 !important;
@@ -140,7 +140,7 @@
   }
 
   .nav-cta::after { display: none !important; }
-  .nav-cta:hover { background: var(--gold-light) !important; box-shadow: 0 4px 20px rgba(200,168,75,0.3) !important; }
+  .nav-cta:hover { background: var(--accent) !important; box-shadow: 0 4px 20px rgba(26,77,143,0.4) !important; }
 
   /* HERO */
   .hero {
@@ -199,7 +199,7 @@
     top: 0; left: -100%;
     width: 60%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(200,168,75,0.03), transparent);
+    background: linear-gradient(90deg, transparent, rgba(77,184,232,0.03), transparent);
     animation: scanHero 6s ease-in-out infinite;
     pointer-events: none;
   }
@@ -233,7 +233,7 @@
     font-family: var(--font-mono);
     font-size: 10px;
     letter-spacing: 0.2em;
-    color: var(--gold);
+    color: var(--cyan);
     text-transform: uppercase;
     margin-bottom: 28px;
     animation: fadeUp 0.9s ease both;
@@ -242,10 +242,10 @@
   .hero-eyebrow-dot {
     width: 6px;
     height: 6px;
-    background: var(--gold);
+    background: var(--cyan);
     border-radius: 50%;
     animation: pulse 2s infinite;
-    box-shadow: 0 0 8px var(--gold);
+    box-shadow: 0 0 8px var(--cyan);
   }
 
   .hero-title {
@@ -260,14 +260,14 @@
   }
 
   .hero-title-accent {
-    color: var(--gold);
+    color: var(--cyan);
     display: block;
   }
 
   .hero-title-line {
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, var(--gold), transparent);
+    background: linear-gradient(90deg, var(--cyan), transparent);
     margin: 20px 0 24px;
     animation: fadeUp 0.9s ease 0.2s both;
   }
@@ -290,8 +290,8 @@
   }
 
   .btn-primary {
-    background: var(--gold);
-    color: var(--navy);
+    background: var(--mid);
+    color: var(--white);
     font-family: var(--font-display);
     font-size: 14px;
     font-weight: 700;
@@ -309,12 +309,12 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.12);
     transform: translateX(-100%);
     transition: transform 0.3s;
   }
 
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,168,75,0.35); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(26,77,143,0.4); background: var(--accent); }
   .btn-primary:hover::before { transform: translateX(100%); }
 
   .btn-outline {
@@ -333,9 +333,9 @@
   }
 
   .btn-outline:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    background: rgba(200,168,75,0.06);
+    border-color: var(--cyan);
+    color: var(--cyan);
+    background: rgba(77,184,232,0.06);
   }
 
   /* Hero side panel */
@@ -358,14 +358,14 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--gold), transparent);
+    background: linear-gradient(90deg, var(--cyan), transparent);
   }
 
   .hero-panel-title {
     font-family: var(--font-mono);
     font-size: 10px;
     letter-spacing: 0.2em;
-    color: var(--gold);
+    color: var(--cyan);
     text-transform: uppercase;
     margin-bottom: 20px;
   }
@@ -378,7 +378,7 @@
   }
 
   .hero-stat {
-    border-left: 2px solid rgba(200,168,75,0.3);
+    border-left: 2px solid rgba(77,184,232,0.3);
     padding-left: 12px;
   }
 
@@ -391,7 +391,7 @@
     line-height: 1;
   }
 
-  .hero-stat-num span { color: var(--gold); }
+  .hero-stat-num span { color: var(--cyan); }
 
   .hero-stat-label {
     font-size: 11px;
@@ -421,10 +421,10 @@
     content: '';
     width: 4px;
     height: 4px;
-    background: var(--gold);
+    background: var(--cyan);
     border-radius: 50%;
     flex-shrink: 0;
-    box-shadow: 0 0 6px var(--gold);
+    box-shadow: 0 0 6px var(--cyan);
   }
 
   /* Hero scroll indicator */
@@ -452,7 +452,7 @@
   .hero-scroll-line {
     width: 1px;
     height: 48px;
-    background: linear-gradient(to bottom, rgba(200,168,75,0.5), transparent);
+    background: linear-gradient(to bottom, rgba(77,184,232,0.5), transparent);
     animation: scrollBounce 2s ease-in-out infinite;
   }
 
@@ -464,7 +464,7 @@
   /* STATS BAR */
   .stats-bar {
     background: var(--navy);
-    border-bottom: 1px solid rgba(200,168,75,0.15);
+    border-bottom: 1px solid rgba(77,184,232,0.15);
     padding: 32px 3rem;
     position: relative;
     overflow: hidden;
@@ -475,7 +475,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
   }
 
   .stats-inner {
@@ -504,7 +504,7 @@
     line-height: 1;
   }
 
-  .stat-num span { color: var(--gold); }
+  .stat-num span { color: var(--cyan); }
 
   .stat-label {
     font-size: 11px;
@@ -534,7 +534,7 @@
   .section-eyebrow-line {
     width: 32px;
     height: 1px;
-    background: var(--gold);
+    background: var(--cyan);
   }
 
   .section-tag {
@@ -542,7 +542,7 @@
     font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--cyan);
     display: block;
   }
 
@@ -604,7 +604,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--accent));
+    background: linear-gradient(90deg, var(--cyan), var(--accent));
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s;
@@ -624,7 +624,7 @@
 
   .service-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(13,31,60,0.1), 0 0 0 1px rgba(200,168,75,0.1);
+    box-shadow: 0 20px 50px rgba(13,31,60,0.1), 0 0 0 1px rgba(77,184,232,0.1);
   }
   .service-card:hover::before { transform: scaleX(1); }
   .service-card:hover::after { transform: translate(0, 0); }
@@ -643,8 +643,8 @@
   }
 
   .service-card:hover .service-icon {
-    background: linear-gradient(135deg, rgba(200,168,75,0.12), rgba(200,168,75,0.06));
-    border-color: rgba(200,168,75,0.3);
+    background: linear-gradient(135deg, rgba(77,184,232,0.12), rgba(77,184,232,0.06));
+    border-color: rgba(77,184,232,0.3);
   }
 
   .service-title {
@@ -683,9 +683,9 @@
   }
 
   .service-card:hover .service-tag {
-    background: rgba(200,168,75,0.08);
-    color: var(--gold);
-    border-color: rgba(200,168,75,0.2);
+    background: rgba(77,184,232,0.08);
+    color: var(--cyan);
+    border-color: rgba(77,184,232,0.2);
   }
 
   /* SOBRE */
@@ -714,8 +714,8 @@
   }
 
   .feature-item:hover {
-    border-color: rgba(200,168,75,0.2);
-    background: rgba(200,168,75,0.03);
+    border-color: rgba(77,184,232,0.2);
+    background: rgba(77,184,232,0.03);
   }
 
   .feature-icon {
@@ -732,8 +732,8 @@
   }
 
   .feature-item:hover .feature-icon {
-    background: rgba(200,168,75,0.1);
-    border-color: rgba(200,168,75,0.3);
+    background: rgba(77,184,232,0.1);
+    border-color: rgba(77,184,232,0.3);
   }
 
   .feature-text h4 {
@@ -759,7 +759,7 @@
     color: white;
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(200,168,75,0.15);
+    border: 1px solid rgba(77,184,232,0.15);
   }
 
   .sobre-visual::before {
@@ -767,7 +767,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--gold), transparent);
+    background: linear-gradient(90deg, var(--cyan), transparent);
   }
 
   .sobre-visual::after {
@@ -777,7 +777,7 @@
     right: -60px;
     width: 250px;
     height: 250px;
-    border: 50px solid rgba(200,168,75,0.04);
+    border: 50px solid rgba(77,184,232,0.04);
     border-radius: 50%;
   }
 
@@ -785,7 +785,7 @@
     font-family: var(--font-mono);
     font-size: 9px;
     letter-spacing: 0.2em;
-    color: var(--gold);
+    color: var(--cyan);
     text-transform: uppercase;
     margin-bottom: 12px;
   }
@@ -830,10 +830,10 @@
     content: '';
     width: 6px;
     height: 6px;
-    background: var(--gold);
+    background: var(--cyan);
     border-radius: 1px;
     flex-shrink: 0;
-    box-shadow: 0 0 8px rgba(200,168,75,0.5);
+    box-shadow: 0 0 8px rgba(77,184,232,0.5);
   }
 
   /* DIFERENCIAIS */
@@ -845,7 +845,7 @@
 
   .diff-bg .section-title { color: var(--white); }
   .diff-bg .section-desc { color: rgba(255,255,255,0.5); }
-  .diff-bg .section-tag { color: var(--gold); }
+  .diff-bg .section-tag { color: var(--cyan); }
 
   .diff-bg::before {
     content: '';
@@ -882,13 +882,13 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--gold), transparent);
+    background: linear-gradient(90deg, var(--cyan), transparent);
     transform: scaleX(0);
     transition: transform 0.4s;
   }
 
   .diff-card:hover {
-    background: rgba(200,168,75,0.05);
+    background: rgba(77,184,232,0.05);
   }
 
   .diff-card:hover::before { transform: scaleX(1); }
@@ -903,7 +903,7 @@
     margin-bottom: 6px;
   }
 
-  .diff-num span { color: var(--gold); }
+  .diff-num span { color: var(--cyan); }
 
   .diff-label {
     font-size: 12px;
@@ -933,7 +933,7 @@
 
   .processo-connector-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--gold), var(--accent));
+    background: linear-gradient(90deg, var(--cyan), var(--accent));
     width: 0%;
     transition: width 1.5s ease;
   }
@@ -969,10 +969,10 @@
   }
 
   .step:hover .step-num {
-    background: var(--gold);
-    border-color: var(--gold);
+    background: var(--cyan);
+    border-color: var(--cyan);
     color: var(--navy);
-    box-shadow: 0 0 0 6px rgba(200,168,75,0.12);
+    box-shadow: 0 0 0 6px rgba(77,184,232,0.12);
     transform: scale(1.08);
   }
 
@@ -1020,7 +1020,7 @@
     transform: translate(-50%, -50%);
     width: 800px;
     height: 800px;
-    background: radial-gradient(ellipse, rgba(200,168,75,0.06) 0%, transparent 60%);
+    background: radial-gradient(ellipse, rgba(77,184,232,0.06) 0%, transparent 60%);
     pointer-events: none;
   }
 
@@ -1030,7 +1030,7 @@
     font-family: var(--font-mono);
     font-size: 10px;
     letter-spacing: 0.2em;
-    color: var(--gold);
+    color: var(--cyan);
     text-transform: uppercase;
     margin-bottom: 20px;
     display: block;
@@ -1084,8 +1084,8 @@
   }
 
   .contato-item:hover {
-    border-color: rgba(200,168,75,0.2);
-    background: rgba(200,168,75,0.03);
+    border-color: rgba(77,184,232,0.2);
+    background: rgba(77,184,232,0.03);
   }
 
   .contato-icon {
@@ -1102,8 +1102,8 @@
   }
 
   .contato-item:hover .contato-icon {
-    background: rgba(200,168,75,0.1);
-    border-color: rgba(200,168,75,0.3);
+    background: rgba(77,184,232,0.1);
+    border-color: rgba(77,184,232,0.3);
   }
 
   .contato-item h4 {
@@ -1138,7 +1138,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--accent));
+    background: linear-gradient(90deg, var(--cyan), var(--accent));
   }
 
   .form-box-title {
@@ -1183,8 +1183,8 @@
   .form-group input:focus,
   .form-group select:focus,
   .form-group textarea:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(200,168,75,0.1);
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 3px rgba(77,184,232,0.1);
     background: var(--white);
   }
 
@@ -1215,7 +1215,7 @@
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 2px;
-    background: var(--gold);
+    background: var(--cyan);
     transform: scaleX(0);
     transition: transform 0.3s;
   }
@@ -1228,7 +1228,7 @@
     background: #030a12;
     padding: 64px 3rem 32px;
     color: rgba(255,255,255,0.5);
-    border-top: 1px solid rgba(200,168,75,0.12);
+    border-top: 1px solid rgba(77,184,232,0.12);
   }
 
   .footer-inner {
@@ -1254,7 +1254,7 @@
   .footer-divider {
     width: 32px;
     height: 1px;
-    background: var(--gold);
+    background: var(--cyan);
     margin: 16px 0;
     opacity: 0.5;
   }
@@ -1282,7 +1282,7 @@
     letter-spacing: 0.02em;
   }
 
-  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-col ul li a:hover { color: var(--cyan); }
 
   .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.06);
@@ -1315,7 +1315,7 @@
     transition: border-color 0.2s, color 0.2s, background 0.2s;
   }
 
-  .footer-social a:hover { border-color: var(--gold); color: var(--gold); background: rgba(200,168,75,0.06); }
+  .footer-social a:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(77,184,232,0.06); }
 
   /* ANIMATIONS */
   @keyframes fadeUp {
@@ -1404,30 +1404,7 @@
 <!-- NAV -->
 <nav id="main-nav">
   <a href="#" class="nav-logo">
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="18" cy="18" r="17.5" stroke="rgba(200,168,75,0.3)" stroke-width="1"/>
-      <path d="M18 4 C12 4 7 9 7 15 C7 19 9 22.5 12 24.5 L11 32 L18 28 L25 32 L24 24.5 C27 22.5 29 19 29 15 C29 9 24 4 18 4Z" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
-      <line x1="10" y1="12" x2="15" y2="12" stroke="rgba(200,168,75,0.7)" stroke-width="1"/>
-      <line x1="15" y1="12" x2="15" y2="10" stroke="rgba(200,168,75,0.7)" stroke-width="1"/>
-      <line x1="15" y1="10" x2="20" y2="10" stroke="rgba(200,168,75,0.7)" stroke-width="1"/>
-      <line x1="20" y1="10" x2="20" y2="12" stroke="rgba(200,168,75,0.7)" stroke-width="1"/>
-      <line x1="20" y1="12" x2="26" y2="12" stroke="rgba(200,168,75,0.7)" stroke-width="1"/>
-      <line x1="12" y1="16" x2="17" y2="16" stroke="rgba(96,165,250,0.6)" stroke-width="1"/>
-      <line x1="17" y1="16" x2="17" y2="14" stroke="rgba(96,165,250,0.6)" stroke-width="1"/>
-      <line x1="17" y1="14" x2="22" y2="14" stroke="rgba(96,165,250,0.6)" stroke-width="1"/>
-      <line x1="22" y1="14" x2="22" y2="16" stroke="rgba(96,165,250,0.6)" stroke-width="1"/>
-      <line x1="22" y1="16" x2="26" y2="16" stroke="rgba(96,165,250,0.6)" stroke-width="1"/>
-      <circle cx="10" cy="12" r="1.2" fill="rgba(200,168,75,0.8)"/>
-      <circle cx="26" cy="12" r="1.2" fill="rgba(200,168,75,0.8)"/>
-      <circle cx="15" cy="10" r="1" fill="rgba(200,168,75,0.5)"/>
-      <circle cx="20" cy="10" r="1" fill="rgba(200,168,75,0.5)"/>
-      <circle cx="12" cy="16" r="1.2" fill="rgba(96,165,250,0.7)"/>
-      <circle cx="26" cy="16" r="1.2" fill="rgba(96,165,250,0.7)"/>
-    </svg>
-    <div>
-      <span class="nav-logo-text">PROTRON</span>
-      <span class="nav-logo-sub">Soluções em Tecnologia</span>
-    </div>
+    <img src="images/logo.png" alt="PROTRON" class="nav-logo-img">
   </a>
   <ul class="nav-links">
     <li><a href="#servicos">Serviços</a></li>
@@ -1718,7 +1695,7 @@
 <section id="diferenciais" class="diff-bg">
   <div class="section-inner">
     <div class="section-eyebrow reveal" style="margin-bottom: 0;">
-      <div class="section-eyebrow-line" style="background: rgba(200,168,75,0.5);"></div>
+      <div class="section-eyebrow-line" style="background: rgba(77,184,232,0.5);"></div>
       <span class="section-tag">Por que a PROTRON</span>
     </div>
     <h2 class="section-title reveal" style="color: white; margin-top: 16px;">Nossos Diferenciais</h2>
@@ -1726,19 +1703,19 @@
 
     <div class="diff-grid">
       <div class="diff-card reveal">
-        <div class="diff-num"><span class="counter-gold" data-target="10">0</span><span>+</span></div>
+        <div class="diff-num"><span class="counter-cyan" data-target="10">0</span><span>+</span></div>
         <div class="diff-label">Anos de atuação no mercado industrial</div>
       </div>
       <div class="diff-card reveal">
-        <div class="diff-num"><span class="counter-gold" data-target="98">0</span><span>%</span></div>
+        <div class="diff-num"><span class="counter-cyan" data-target="98">0</span><span>%</span></div>
         <div class="diff-label">Taxa de sucesso em reparo de equipamentos</div>
       </div>
       <div class="diff-card reveal">
-        <div class="diff-num"><span class="counter-gold" data-target="500">0</span><span>+</span></div>
+        <div class="diff-num"><span class="counter-cyan" data-target="500">0</span><span>+</span></div>
         <div class="diff-label">Equipamentos reparados e refurbishados</div>
       </div>
       <div class="diff-card reveal">
-        <div class="diff-num"><span class="counter-gold" data-target="24">0</span><span>h</span></div>
+        <div class="diff-num"><span class="counter-cyan" data-target="24">0</span><span>h</span></div>
         <div class="diff-label">Para diagnóstico inicial do equipamento</div>
       </div>
     </div>
@@ -1912,17 +1889,8 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
-            <circle cx="18" cy="18" r="17.5" stroke="rgba(200,168,75,0.25)" stroke-width="1"/>
-            <path d="M18 4 C12 4 7 9 7 15 C7 19 9 22.5 12 24.5 L11 32 L18 28 L25 32 L24 24.5 C27 22.5 29 19 29 15 C29 9 24 4 18 4Z" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
-            <line x1="10" y1="12" x2="26" y2="12" stroke="rgba(200,168,75,0.5)" stroke-width="1"/>
-            <line x1="12" y1="16" x2="26" y2="16" stroke="rgba(96,165,250,0.5)" stroke-width="1"/>
-          </svg>
-          <div>
-            <span style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: white; letter-spacing: 0.1em; display: block;">PROTRON</span>
-            <span style="font-family: var(--font-mono); font-size: 9px; color: rgba(200,168,75,0.6); letter-spacing: 0.15em; text-transform: uppercase;">Soluções em Tecnologia</span>
-          </div>
+        <div style="display: flex; align-items: center;">
+          <img src="images/logo.png" alt="PROTRON" class="footer-logo-img">
         </div>
         <div class="footer-divider"></div>
         <p>RMA, Engenharia Eletrônica, Telecomunicações e Automação. Expertise técnica para sua operação.</p>
@@ -2033,13 +2001,13 @@
     });
   }, { threshold: 0.5 });
 
-  document.querySelectorAll('.counter, .counter-gold').forEach(el => {
+  document.querySelectorAll('.counter, .counter-cyan').forEach(el => {
     counterObserver.observe(el);
   });
 
   // Gold counter color
-  document.querySelectorAll('.counter-gold').forEach(el => {
-    el.style.color = 'var(--gold)';
+  document.querySelectorAll('.counter-cyan').forEach(el => {
+    el.style.color = 'var(--cyan)';
   });
 
   // Processo connector animation
